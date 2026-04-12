@@ -10,6 +10,7 @@ import flixel.input.touch.FlxTouch;
 import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil.IFlxDestroyable;
 import flixel.system.FlxSound;
+import flixel.FlxSprite;
 
 using StringTools;
 /**
