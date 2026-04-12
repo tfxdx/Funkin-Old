@@ -22,6 +22,7 @@ class MusicBeatSubstate extends FlxSubState
 	private var controls(get, never):Controls;
 
 	inline function get_controls():Controls
+		return PlayerSettings.player1.controls;
 
 	#if mobile
 	var _virtualpad:FlxVirtualPad;
@@ -46,7 +47,6 @@ class MusicBeatSubstate extends FlxSubState
 		FlxG.resetState();
 	}
 	#end
-		return PlayerSettings.player1.controls;
 
 	override function create()
 	{
