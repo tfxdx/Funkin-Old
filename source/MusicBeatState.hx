@@ -39,7 +39,7 @@ class MusicBeatState extends FlxUIState
 
 	public function addVirtualPad(?dpad:FlxDPadMode, ?action:FlxActionMode) {
 		_virtualpad = new FlxVirtualPad(dpad, action);
-		_virtualpad.alpha = 0.75;
+		_virtualpad.alpha = FlxHitbox.controlsAlpha;
 		add(_virtualpad);
 	}
 
