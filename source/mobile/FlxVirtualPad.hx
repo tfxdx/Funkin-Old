@@ -10,6 +10,10 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import Paths;
 
 class FlxVirtualPad extends FlxSpriteGroup {
+	inline static public function getPackerAtlas(key:String, ?library:String)
+	{
+		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
+	}
 	//Actions
 	public var buttonA:FlxButton;
 	public var buttonB:FlxButton;
