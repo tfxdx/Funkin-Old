@@ -9,7 +9,6 @@ import flixel.ui.FlxButton;
 import flixel.graphics.frames.FlxAtlasFrames;
 
 class FlxVirtualPad extends FlxSpriteGroup {
-	#if PATHS
 	static function getPath(file:String, type:AssetType, library:Null<String>)
 	{
 		if (library != null)
@@ -40,7 +39,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	{
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
 	}
-	#end
 	//Actions
 	public var buttonA:FlxButton;
 	public var buttonB:FlxButton;
