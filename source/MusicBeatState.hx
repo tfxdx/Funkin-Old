@@ -9,7 +9,6 @@ import flixel.util.FlxTimer;
 import flixel.FlxCamera;
 #if mobile
 import mobile.FlxVirtualPad;
-import mobile.FlxHitbox;
 #end
 
 class MusicBeatState extends FlxUIState
