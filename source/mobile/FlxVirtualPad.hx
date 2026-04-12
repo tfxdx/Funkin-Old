@@ -7,6 +7,7 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil;
 import flixel.ui.FlxButton;
 import flixel.graphics.frames.FlxAtlasFrames;
+import openfl.utils.Assets;
 
 class FlxVirtualPad extends FlxSpriteGroup {
 	//Actions
