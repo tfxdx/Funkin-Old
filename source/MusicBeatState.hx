@@ -21,6 +21,7 @@ class MusicBeatState extends FlxUIState
 	private var controls(get, never):Controls;
 
 	inline function get_controls():Controls
+		return PlayerSettings.player1.controls;
 
 	#if mobile
 	var _hitbox:FlxHitbox;
@@ -55,7 +56,6 @@ class MusicBeatState extends FlxUIState
 		_virtualpad.cameras = [camMobile];
 	}
 	#end
-		return PlayerSettings.player1.controls;
 
 	override function create()
 	{
