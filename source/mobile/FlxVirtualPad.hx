@@ -11,7 +11,6 @@ import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
 
 class FlxVirtualPad extends FlxSpriteGroup {
-	#if PATHS
 	static function getPath(file:String, type:AssetType, library:Null<String>)
 	{
 		if (library != null)
@@ -42,7 +41,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	{
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
 	}
-	#end
 	//Actions
 	public var buttonA:FlxButton;
 	public var buttonB:FlxButton;
@@ -194,11 +192,9 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		return button;
 	}
 
-	#if PATHS
 	public static function getFrames():FlxAtlasFrames {
 		return getPackerAtlas('mobileControls/virtualpad');
 	}
-	#end
 
 	override public function destroy():Void {
 		super.destroy();
