@@ -3,7 +3,7 @@ package mobile;
 import flixel.util.FlxGradient;
 import flixel.group.FlxSpriteGroup;
 import flixel.util.FlxDestroyUtil;
-import mobile.flixel.FlxButton;
+import mobile.FlxButton;
 import flixel.FlxSprite;
 import flixel.FlxG;
 import openfl.display.BitmapData;
