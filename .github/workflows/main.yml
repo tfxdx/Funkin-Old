@@ -18,9 +18,9 @@ jobs:
           haxelib install flixel-addons 2.11.0
           haxelib install flixel-ui 2.6.1
           haxelib install newgrounds 1.3.0
-          haxelib install hscript
+          haxelib install hscript 2.5.0
+          haxelib install polymod 1.5.2
           haxelib git hxcpp https://github.com/haxefoundation/hxcpp
-          haxelib git polymod https://github.com/larsiusprime/polymod.git
           haxelib git faxe https://github.com/ashea-code/faxe
           haxelib git discord_rpc https://github.com/aidan63/linc_discord-rpc
       - name: configure android
