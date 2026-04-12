@@ -7,9 +7,12 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil;
 import flixel.ui.FlxButton;
 import flixel.graphics.frames.FlxAtlasFrames;
-import Paths;
 
 class FlxVirtualPad extends FlxSpriteGroup {
+	inline static public function image(key:String, ?library:String)
+	{
+		return getPath('images/$key.png', IMAGE, library);
+	}
 	inline static public function getPackerAtlas(key:String, ?library:String)
 	{
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
@@ -166,7 +169,7 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	}
 
 	public static function getFrames():FlxAtlasFrames {
-		return Paths.getPackerAtlas('mobileControls/virtualpad');
+		return getPackerAtlas('mobileControls/virtualpad');
 	}
 
 	override public function destroy():Void {
