@@ -6,6 +6,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.FlxUIState;
 import flixel.math.FlxRect;
 import flixel.util.FlxTimer;
+import flixel.FlxCamera;
 #if mobile
 import mobile.FlxVirtualPad;
 import mobile.FlxHitbox;
@@ -40,7 +41,7 @@ class MusicBeatState extends FlxUIState
 
 	public function addVirtualPad(?dpad:FlxDPadMode, ?action:FlxActionMode) {
 		_virtualpad = new FlxVirtualPad(dpad, action);
-		_virtualpad.alpha = FlxHitbox.controlsAlpha;
+		_virtualpad.alpha = 0.7;
 		add(_virtualpad);
 	}
 
