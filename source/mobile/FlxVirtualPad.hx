@@ -7,6 +7,8 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil;
 import flixel.ui.FlxButton;
 import flixel.graphics.frames.FlxAtlasFrames;
+import openfl.utils.AssetType;
+import openfl.utils.Assets as OpenFlAssets;
 
 class FlxVirtualPad extends FlxSpriteGroup {
 	static function getPath(file:String, type:AssetType, library:Null<String>)
