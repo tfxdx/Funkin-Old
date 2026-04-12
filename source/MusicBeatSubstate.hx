@@ -38,14 +38,6 @@ class MusicBeatSubstate extends FlxSubState
 		FlxG.cameras.add(virtualpadcam, false);
 		_virtualpad.cameras = [virtualpadcam];
     }
-
-	public function removeVirtualPad() {
-		remove(_virtualpad);
-	}
-	public function closeSs() {
-		FlxTransitionableState.skipNextTransOut = true;
-		FlxG.resetState();
-	}
 	#end
 
 	override function create()
