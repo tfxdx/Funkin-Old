@@ -1,4 +1,4 @@
-package mobile.flixel;
+package mobile;
 
 import flixel.graphics.atlas.FlxAtlas;
 import flixel.graphics.atlas.FlxNode;
