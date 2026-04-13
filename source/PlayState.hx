@@ -695,10 +695,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
-		#if mobile
-        addVirtualPad(FULL, NONE);
-        #end
-
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -1840,20 +1836,20 @@ class PlayState extends MusicBeatState
 	private function keyShit():Void
 	{
 		// HOLDING
-		var up = controls.UP #if mobile || _virtualpad.buttonUp.justPressed #end;
-		var right = controls.RIGHT #if mobile || _virtualpad.buttonRight.justPressed #end;
-		var down = controls.DOWN #if mobile || _virtualpad.buttonDown.justPressed #end;
-		var left = controls.LEFT #if mobile || _virtualpad.buttonLeft.justPressed #end;
+		var up = controls.UP;
+		var right = controls.RIGHT;
+		var down = controls.DOWN;
+		var left = controls.LEFT;
 
-		var upP = controls.UP_P #if mobile || _virtualpad.buttonUp.justPressed #end;
-		var rightP = controls.RIGHT_P #if mobile || _virtualpad.buttonRight.justPressed #end;
-		var downP = controls.DOWN_P #if mobile || _virtualpad.buttonDown.justPressed #end;
-		var leftP = controls.LEFT_P #if mobile || _virtualpad.buttonLeft.justPressed #end;
+		var upP = controls.UP_P;
+		var rightP = controls.RIGHT_P;
+		var downP = controls.DOWN_P;
+		var leftP = controls.LEFT_P;
 
-		var upR = controls.UP_R #if mobile || _virtualpad.buttonUp.justPressed #end;
-		var rightR = controls.RIGHT_R #if mobile || _virtualpad.buttonRight.justPressed #end;
-		var downR = controls.DOWN_R #if mobile || _virtualpad.buttonDown.justPressed #end;
-		var leftR = controls.LEFT_R #if mobile || _virtualpad.buttonLeft.justPressed #end;
+		var upR = controls.UP_R;
+		var rightR = controls.RIGHT_R;
+		var downR = controls.DOWN_R;
+		var leftR = controls.LEFT_R;
 
 		var controlArray:Array<Bool> = [leftP, downP, upP, rightP];
 
