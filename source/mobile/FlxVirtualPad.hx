@@ -7,9 +7,26 @@ import flixel.math.FlxPoint;
 import flixel.util.FlxDestroyUtil;
 import flixel.ui.FlxButton;
 import flixel.graphics.frames.FlxAtlasFrames;
+import openfl.utils.AssetType;
 import openfl.utils.Assets;
 
 class FlxVirtualPad extends FlxSpriteGroup {
+	static function getPath(file:String, type:AssetType, library:Null<String>)
+	{
+		return 'assets/' + file;
+	}
+	inline static public function file(file:String, type:AssetType = TEXT, ?library:String)
+	{
+		return getPath(file, type, library);
+	}
+	inline static public function image(key:String, ?library:String)
+	{
+		return getPath('images/$key.png', IMAGE, library);
+	}
+	inline static public function getPackerAtlas(key:String, ?library:String)
+	{
+		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
+	}
 	//Actions
 	public var buttonA:FlxButton;
 	public var buttonB:FlxButton;
@@ -162,7 +179,7 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	}
 
 	public static function getFrames():FlxAtlasFrames {
-		return Paths.getPackerAtlas('mobileControls/virtualpad');
+		return FlxVirtualPad.getPackerAtlas('mobileControls/virtualpad');
 	}
 
 	override public function destroy():Void {
