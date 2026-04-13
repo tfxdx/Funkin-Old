@@ -30,6 +30,7 @@ class OutdatedSubState extends MusicBeatState
 
 		#if mobile
         addVirtualPad(NONE, A_B);
+		addVirtualPadCam();
         #end
 	}
 
