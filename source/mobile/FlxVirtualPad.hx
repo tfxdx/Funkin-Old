@@ -164,7 +164,7 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	public static function getFrames():FlxAtlasFrames {
     return FlxAtlasFrames.fromSparrow(
         Assets.getBitmapData("assets/images/mobileControls/virtualpad.png"),
-        Assets.getText("assets/images/mobileControls/virtualpad.xml")
+        Assets.getText("assets/images/mobileControls/virtualpad.txt")
     );
 	}
 
