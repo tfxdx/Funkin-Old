@@ -147,6 +147,10 @@ class FreeplayState extends MusicBeatState
 			trace(md);
 		 */
 
+		#if mobile
+        addVirtualPad(FULL, A_B);
+        #end
+
 		super.create();
 	}
 
@@ -166,9 +170,9 @@ class FreeplayState extends MusicBeatState
 
 		scoreText.text = "PERSONAL BEST:" + lerpScore;
 
-		var upP = controls.UP_P;
-		var downP = controls.DOWN_P;
-		var accepted = controls.ACCEPT;
+		var upP = controls.UP_P #if mobile || _virtualpad.buttonUp.justPressed #end;
+		var downP = controls.DOWN_P #if mobile || _virtualpad.buttonDown.justPressed #end;
+		var accepted = controls.ACCEPT #if mobile || _virtualpad.buttonA.justPressed #end;
 
 		if (upP)
 		{
@@ -179,12 +183,12 @@ class FreeplayState extends MusicBeatState
 			changeSelection(1);
 		}
 
-		if (controls.LEFT_P)
+		if (controls.LEFT_P #if mobile || _virtualpad.buttonLeft.justPressed #end)
 			changeDiff(-1);
-		if (controls.RIGHT_P)
+		if (controls.RIGHT_P #if mobile || _virtualpad.buttonRight.justPressed #end)
 			changeDiff(1);
 
-		if (controls.BACK)
+		if (controls.BACK #if mobile || _virtualpad.buttonB.justPressed #end)
 		{
 			FlxG.switchState(new MainMenuState());
 		}
