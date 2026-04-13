@@ -33,7 +33,7 @@ class StoryMenuState extends MusicBeatState
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
-		['dad', 'bf', 'gf'],
+		['', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 		['spooky', 'bf', 'gf'],
 		['pico', 'bf', 'gf'],
@@ -261,9 +261,9 @@ class StoryMenuState extends MusicBeatState
 				else
 					leftArrow.animation.play('idle');
 
-				if (controls.RIGHT_P)
+				if (controls.RIGHT_P #if mobile || _virtualpad.buttonRight.justPressed #end)
 					changeDifficulty(1);
-				if (controls.LEFT_P)
+				if (controls.LEFT_P #if mobile || _virtualpad.buttonLeft.justPressed #end)
 					changeDifficulty(-1);
 			}
 
