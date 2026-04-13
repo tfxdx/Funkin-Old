@@ -97,6 +97,10 @@ class MainMenuState extends MusicBeatState
 
 		changeItem();
 
+		#if mobile
+        addVirtualPad(UP_DOWN, A_B);
+        #end
+
 		super.create();
 	}
 
@@ -111,24 +115,24 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin)
 		{
-			if (controls.UP_P)
+			if (controls.UP_P #if mobile || _virtualpad.buttonUp.justPressed #end)
 			{
 				FlxG.sound.play('assets/sounds/scrollMenu' + TitleState.soundExt);
 				changeItem(-1);
 			}
 
-			if (controls.DOWN_P)
+			if (controls.DOWN_P #if mobile || _virtualpad.buttonDown.justPressed #end)
 			{
 				FlxG.sound.play('assets/sounds/scrollMenu' + TitleState.soundExt);
 				changeItem(1);
 			}
 
-			if (controls.BACK)
+			if (controls.BACK #if mobile || _virtualpad.buttonB.justPressed #end)
 			{
 				FlxG.switchState(new TitleState());
 			}
 
-			if (controls.ACCEPT)
+			if (controls.ACCEPT #if mobile || _virtualpad.buttonA.justPressed #end)
 			{
 				if (optionShit[curSelected] == 'donate')
 				{
