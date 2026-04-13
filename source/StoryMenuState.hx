@@ -211,6 +211,10 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 165");
 
+		#if mobile
+        addVirtualPad(FULL, A_B);
+        #end
+
 		super.create();
 	}
 
@@ -237,22 +241,22 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!selectedWeek)
 			{
-				if (controls.UP_P)
+				if (controls.UP_P #if mobile || _virtualpad.buttonUp.justPressed #end)
 				{
 					changeWeek(-1);
 				}
 
-				if (controls.DOWN_P)
+				if (controls.DOWN_P #if mobile || _virtualpad.buttonDown.justPressed #end)
 				{
 					changeWeek(1);
 				}
 
-				if (controls.RIGHT)
+				if (controls.RIGHT #if mobile || _virtualpad.buttonRight.justPressed #end)
 					rightArrow.animation.play('press')
 				else
 					rightArrow.animation.play('idle');
 
-				if (controls.LEFT)
+				if (controls.LEFT #if mobile || _virtualpad.buttonLeft.justPressed #end)
 					leftArrow.animation.play('press');
 				else
 					leftArrow.animation.play('idle');
@@ -263,13 +267,13 @@ class StoryMenuState extends MusicBeatState
 					changeDifficulty(-1);
 			}
 
-			if (controls.ACCEPT)
+			if (controls.ACCEPT #if mobile || _virtualpad.buttonA.justPressed #end)
 			{
 				selectWeek();
 			}
 		}
 
-		if (controls.BACK && !movedBack && !selectedWeek)
+		if (controls.BACK #if mobile || _virtualpad.buttonB.justPressed #end && !movedBack && !selectedWeek)
 		{
 			FlxG.sound.play('assets/sounds/cancelMenu' + TitleState.soundExt);
 			movedBack = true;
