@@ -13,6 +13,11 @@ class OutdatedSubState extends MusicBeatState
 
 	override function create()
 	{
+		#if mobile
+        addVirtualPad(NONE, A_B);
+		addVirtualPadCam();
+        #end
+
 		super.create();
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
@@ -27,11 +32,6 @@ class OutdatedSubState extends MusicBeatState
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		txt.screenCenter();
 		add(txt);
-
-		#if mobile
-        addVirtualPad(NONE, A_B);
-		addVirtualPadCam();
-        #end
 	}
 
 	override function update(elapsed:Float)
