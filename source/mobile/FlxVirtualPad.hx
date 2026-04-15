@@ -11,7 +11,6 @@ import openfl.utils.AssetType;
 import openfl.utils.Assets;
 
 class FlxVirtualPad extends FlxSpriteGroup {
-	#if PATHS_ALLOWED
 	static function getPath(file:String, type:AssetType, library:Null<String>)
 	{
 		return 'assets/' + file;
@@ -28,8 +27,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	{
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
 	}
-	#end
-	//Actions
 	public var buttonA:FlxButton;
 	public var buttonB:FlxButton;
 	public var buttonC:FlxButton;
@@ -43,7 +40,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	public var buttonY:FlxButton;
 	public var buttonZ:FlxButton;
 
-	//DPad
 	public var buttonLeft:FlxButton;
 	public var buttonUp:FlxButton;
 	public var buttonRight:FlxButton;
@@ -162,7 +158,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 				dPad.add(add(buttonZ = createButton(FlxG.width - 132, FlxG.height - 255, 132, 127, "z", 0xCCB98E)));
 				dPad.add(add(buttonA = createButton(FlxG.width - 132, FlxG.height - 135, 132, 127, "a", 0xFF0000)));
 			case NONE:
-				// do nothing
 		}
 	}
 
@@ -180,11 +175,9 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		return button;
 	}
 
-	#if PATHS_ALLOWED
 	public static function getFrames():FlxAtlasFrames {
 		return FlxVirtualPad.getPackerAtlas('mobileControls/virtualpad');
 	}
-	#end
 
 	override public function destroy():Void {
 		super.destroy();
