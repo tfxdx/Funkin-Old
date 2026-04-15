@@ -21,7 +21,7 @@ class Main extends Sprite
 		FlxG.signals.gameResized.add(function (w, h) {
 	if (fpsVar != null)
 	{
-		var scale = Math.min(w / FlxG.width, h / FlxG.height);
+		var scale = Math.min(w / 1280, h / 720);
 		fpsVar.x = 10;
 		fpsVar.y = 3;
 		fpsVar.scaleX = scale;
