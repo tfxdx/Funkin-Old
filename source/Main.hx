@@ -18,16 +18,15 @@ class Main extends Sprite
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 
-		public inline function positionFPS(X:Float, Y:Float, ?scale:Float = 1){
-		scaleX = scaleY = #if android (scale > 1 ? scale : 1) #else (scale < 1 ? scale : 1) #end;
-		x = FlxG.game.x + X;
-		y = FlxG.game.y + Y;
-		}
 		FlxG.signals.gameResized.add(function (w, h) {
-			if (fpsVar != null)
-			{
-				fpsVar.positionFPS(10, 3, Math.min(w / FlxG.width, h / FlxG.height));
-			}
-		});
+	if (fpsVar != null)
+	{
+		var scale = Math.min(w / FlxG.width, h / FlxG.height);
+		fpsVar.x = 10;
+		fpsVar.y = 3;
+		fpsVar.scaleX = scale;
+		fpsVar.scaleY = scale;
+	}
+});
 	}
 }
