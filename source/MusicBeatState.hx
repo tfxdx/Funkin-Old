@@ -49,10 +49,10 @@ class MusicBeatState extends FlxUIState
 		trackedinputs = controls.trackedinputs;
 		controls.trackedinputs = [];
 
-		var camcontrol = new flixel.FlxCamera();
-		FlxG.cameras.add(camcontrol);
-		camcontrol.bgColor.alpha = 0;
-		androidc.cameras = [camcontrol];
+		var camMobile = new FlxCamera();
+		FlxG.cameras.add(camMobile);
+		camMobile.bgColor.alpha = 0;
+		androidc.cameras = [camMobile];
 
 		androidc.visible = false;
 
@@ -60,7 +60,7 @@ class MusicBeatState extends FlxUIState
 	}
 
 	public function addVirtualPadCam() {
-		var camMobile = new flixel.FlxCamera();
+		var camMobile = new FlxCamera();
 		FlxG.cameras.add(camMobile);
 		camMobile.bgColor.alpha = 0;
 		_virtualpad.cameras = [camMobile];
