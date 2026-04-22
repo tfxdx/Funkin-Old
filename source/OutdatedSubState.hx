@@ -13,7 +13,6 @@ class OutdatedSubState extends MusicBeatState
 
 	override function create()
 	{
-		super.create();
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
 		var ver = "v" + Application.current.meta.get('version');
@@ -32,6 +31,8 @@ class OutdatedSubState extends MusicBeatState
         addVirtualPad(NONE, A_B);
 		addVirtualPadCam();
         #end
+
+		super.create();
 	}
 
 	override function update(elapsed:Float)
