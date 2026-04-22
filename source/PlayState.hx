@@ -699,6 +699,11 @@ class PlayState extends MusicBeatState
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
 
+		#if mobile
+		addMobileControls();
+		androidc.visible = true;
+		#end
+
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 
