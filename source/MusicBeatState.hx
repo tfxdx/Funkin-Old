@@ -8,6 +8,7 @@ import flixel.math.FlxRect;
 import flixel.util.FlxTimer;
 import flixel.FlxCamera;
 #if mobile
+import flixel.input.actions.FlxActionInput;
 import mobile.FlxVirtualPad;
 import mobile.MobileControls;
 #end
@@ -26,6 +27,8 @@ class MusicBeatState extends FlxUIState
 
 	#if mobile
 	var _virtualpad:FlxVirtualPad;
+	var androidc:AndroidControls;
+	var trackedinputs:Array<FlxActionInput> = [];
 
 	public function addVirtualPad(?dpad:FlxDPadMode, ?action:FlxActionMode) {
 		_virtualpad = new FlxVirtualPad(dpad, action);
