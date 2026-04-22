@@ -10,6 +10,12 @@ import flixel.input.actions.FlxActionSet;
 import flixel.input.gamepad.FlxGamepadButton;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
+#if mobile
+import flixel.group.FlxGroup;
+import mobile.FlxHitbox;
+import mobile.FlxVirtualPad;
+import mobile.FlxButton;
+#end
 
 #if (haxe >= "4.0.0")
 enum abstract Action(String) to String from String
@@ -264,6 +270,38 @@ class Controls extends FlxActionSet
 			scheme = None;
 		setKeyboardScheme(scheme, false);
 	}
+	#end
+
+	#if mobile
+	public var trackedinputs:Array<FlxActionInput> = [];	
+
+	public function addbutton(action:FlxActionDigital, button:FlxButton, state:FlxInputState) {
+		var input = new FlxActionInputDigitalIFlxInput(button, state);
+		trackedinputs.push(input);
+		action.add(input);
+	}
+
+	public function setHitBox(Hitbox:FlxHitbox) {
+		inline forEachBound(Control.UP, (action, state) -> addbutton(action, Hitbox.buttonUp, state));
+		inline forEachBound(Control.DOWN, (action, state) -> addbutton(action, Hitbox.buttonDown, state));
+		inline forEachBound(Control.LEFT, (action, state) -> addbutton(action, Hitbox.buttonLeft, state));
+		inline forEachBound(Control.RIGHT, (action, state) -> addbutton(action, Hitbox.buttonRight, state));
+	}
+
+	public function removeFlxInput(Tinputs) {
+		for (action in this.digitalActions) {
+			var i = action.inputs.length;
+			
+			while (i-- > 0) {
+				var input = action.inputs[i];
+
+				var x = Tinputs.length;
+				while (x-- > 0)
+				if (Tinputs[x] == input)
+					action.remove(input);
+			}
+		}
+	}	
 	#end
 
 	override function update()
