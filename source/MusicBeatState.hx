@@ -8,9 +8,8 @@ import flixel.math.FlxRect;
 import flixel.util.FlxTimer;
 import flixel.FlxCamera;
 #if mobile
-import flixel.input.actions.FlxActionInput;
 import mobile.FlxVirtualPad;
-import mobile.MobileControls;
+import mobile.FlxHitbox;
 #end
 
 class MusicBeatState extends FlxUIState
@@ -27,7 +26,7 @@ class MusicBeatState extends FlxUIState
 
 	#if mobile
 	var _virtualpad:FlxVirtualPad;
-	var androidc:MobileControls;
+	var hitbox:FlxHitbox;
 	var trackedinputs:Array<FlxActionInput> = [];
 
 	public function addVirtualPad(?dpad:FlxDPadMode, ?action:FlxActionMode) {
@@ -37,26 +36,13 @@ class MusicBeatState extends FlxUIState
 	}
 
 	public function addMobileControls() {
-        androidc = new MobileControls();
-
-		switch (androidc.mode)
-		{
-			case HITBOX:
-				controls.setHitBox(androidc.hbox);
-			default:
-		}
-
-		trackedinputs = controls.trackedinputs;
-		controls.trackedinputs = [];
-
-		var camMobile = new FlxCamera();
+        var camMobile = new FlxCamera();
 		FlxG.cameras.add(camMobile);
 		camMobile.bgColor.alpha = 0;
-		androidc.cameras = [camMobile];
-
-		androidc.visible = false;
-
-		add(androidc);
+		hitbox.cameras = [camMobile];
+        hitbox = new FlxHitbox();
+		hitbox.cameras = [camStill];
+		add(hitbox);
 	}
 
 	public function addVirtualPadCam() {
