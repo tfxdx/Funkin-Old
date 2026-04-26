@@ -40,7 +40,6 @@ class MusicBeatState extends FlxUIState
 		camMobile.bgColor.alpha = 0;
 		hitbox.cameras = [camMobile];
         hitbox = new FlxHitbox();
-		hitbox.cameras = [camStill];
 		add(hitbox);
 	}
 
