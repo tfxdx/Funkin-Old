@@ -701,7 +701,6 @@ class PlayState extends MusicBeatState
 
 		#if mobile
 		addMobileControls();
-		androidc.visible = true;
 		#end
 
 		// cameras = [FlxG.cameras.list[1]];
